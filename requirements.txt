@@ -1,1 +1,8 @@
-🚀 CelestialNeRF: 3D reconstruction of celestial terrains like Martian craters & asteroid Bennu using NeRF and TensorFlow, powered by real NASA imagery. A fusion of astronomy, AI & neural rendering for cosmic-level visualization. 
+tensorflow
+numpy
+opencv-python
+matplotlib
+imageio
+tqdm
+scikit-image
+jupyter
