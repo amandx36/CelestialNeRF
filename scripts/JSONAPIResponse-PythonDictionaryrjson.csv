@@ -1,4 +1,4 @@
-"JSON (API Response)","Python Dictionary (r.json())"
+"JSON (API Response)","Python Dictionary (req.json())"
 "Text format (string)","Real Python object in memory"
 """true""(lowercase)","True(capital T)"
 "Python me direct use nahi hota","Python me direct use ho sakta hai"
