@@ -1,3 +1,4 @@
+
 import os # for manage the file brother
 import requests # for api call 
 
@@ -93,6 +94,50 @@ def fetchImageMetadata (sol , imageType):
 
     return allImage
 
-        
+
+# now its time to download the image brother 
+
+def downloadImage (images):
+    index = 1  # making my own counter 
+
+    for img in images :
+
+        # image ka url nekalna 
+
+        imgUrl = img.get("full_res_jpg") or img.get("full_res_png")
+
+        # if the image is empty than move ahead !! 
+        if not imgUrl:
+            continue
+
+
+        # file ka name set kro (output folder ke andar !! )
+        filename = os.path.join(outputFolder , os.path.basename(imgUrl))
+
+        # now i have to show  the progress of the downloading images 
+
+        print(f"[{index}/{len(images)}] Downloading  {filename} ... .. .")
+
+
+        try:
+            # downloading the file now main work !!! 
+            imgData  =  requests.get(imgUrl).content 
+
+            # now image ko apne file main save karo brother !! 
+            with open (filename , "wb") as f :
+                f.write(imgData)
+
+        except Exception as e :
+            print(f"Failed to download the file {imgUrl}: {e}")
+
+        index = index + 1 ;
+
+if __name__ == "__main__":
+    print(f"Fetching the image {imageType} images from Sol {sol}")
+    imagesss = fetchImageMetadata(sol , imageType) 
+    print(f"Image found now  Start downloading ... .. .  ")
+    downloadImage(imagesss)
+    print("All images downloaded  sucessfully !!! ")
+
 
  
